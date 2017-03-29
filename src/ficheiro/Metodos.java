@@ -1,6 +1,5 @@
 package ficheiro;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -30,15 +29,17 @@ public class Metodos {
         PrintWriter fichero = null;
         try {
             fichero = new PrintWriter(new FileWriter(nomefich, true));
-            for (Alumnos a : list) {
-                fichero.println(a.getNome() + ' ' + a.getNota());
-            }
+
             if (nomefich.equals("aprobados.dat")) {
                 for (Alumnos a : aprobados) {
                     fichero.println(a.getNome() + ' ' + a.getNota());
                 }
             } else if (nomefich.equals("suspensos.dat")) {
                 for (Alumnos a : suspensos) {
+                    fichero.println(a.getNome() + ' ' + a.getNota());
+                }
+            } else if (nomefich.equals("notas.dat")) {
+                for (Alumnos a : list) {
                     fichero.println(a.getNome() + ' ' + a.getNota());
                 }
             }
@@ -54,15 +55,16 @@ public class Metodos {
         String[] Alumnos;
         try {
             sc = new Scanner(new File(nomefich));
+
             while (sc.hasNextLine()) {
+
                 String Alumno = sc.nextLine();
                 Alumnos = Alumno.split(" ");
+
                 if (Integer.parseInt(Alumnos[1]) >= 5) {
                     aprobados.add(new Alumnos(Alumnos[0], Integer.parseInt(Alumnos[1])));
-                    this.engadir("aprobados.dat");
                 } else {
                     suspensos.add(new Alumnos(Alumnos[0], Integer.parseInt(Alumnos[1])));
-                    this.engadir("suspensos.dat");
                 }
                 list.add(new Alumnos(Alumnos[0], Integer.parseInt(Alumnos[1])));
             }
