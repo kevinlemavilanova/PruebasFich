@@ -57,7 +57,6 @@ public class Metodos {
             sc = new Scanner(new File(nomefich));
 
             while (sc.hasNextLine()) {
-
                 String Alumno = sc.nextLine();
                 Alumnos = Alumno.split(" ");
 
@@ -68,6 +67,8 @@ public class Metodos {
                 }
                 list.add(new Alumnos(Alumnos[0], Integer.parseInt(Alumnos[1])));
             }
+            this.engadir("suspensos.dat");
+            this.engadir("aprobados.dat");
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);

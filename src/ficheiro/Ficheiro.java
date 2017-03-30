@@ -20,8 +20,6 @@ public class Ficheiro {
                     metodos.list.add(new Alumnos("Pedro", 7));
                     metodos.list.add(new Alumnos("Pepe", 4));
                     metodos.engadir("notas.dat");
-                    metodos.engadir("aprobados.dat");
-                    metodos.engadir("suspensos.dat");
 
                     break;
                 case "b":
